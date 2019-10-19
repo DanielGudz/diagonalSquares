@@ -1,0 +1,38 @@
+<html> 
+ <head>
+    <title></title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body> 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+ <script>
+var sketchProc = function(processingInstance) {
+with (processingInstance) {
+size(400, 400); 
+frameRate(120);
+
+background(floor(random(0,255)),floor(random(0,255)),floor(random(0,255)));
+var numSquares = 14;
+var y = 0;
+var wh1 = 400 / numSquares;
+var x = 400-wh1;
+
+
+for (var i = 0; i < numSquares; i++) {
+    fill(floor(random(0,255)),floor(random(0,255)),floor(random(0,255)));
+    rect(x,y,wh1,wh1);
+    x = x - wh1;
+    y = y + wh1;
+}
+
+}
+};
+
+var canvas = document.getElementById("mycanvas"); 
+var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
